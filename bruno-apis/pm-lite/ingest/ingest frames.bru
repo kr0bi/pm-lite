@@ -1,0 +1,32 @@
+meta {
+  name: ingest frames
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/api/events/evt-1/frames
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "eventId": "evt-1",
+    "channel": "CH1",
+    "frames": [
+      {
+        "ts": "2025-09-28T12:00:00.100Z",
+        "payload": "AAEC"
+      },
+      {
+        "ts": "2025-09-28T12:00:00.200Z",
+        "payload": "AQID"
+      }
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}
